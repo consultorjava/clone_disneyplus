@@ -1,0 +1,39 @@
+Módulo 21 - Landing Page.
+Projeto 4 - Clone da landing do Disney+
+
+1 - Crie uma pasta do projeto.
+2 - Abra o VSCODE e abra essa pasta.
+3 - Abra o terminal: npm init --yes
+4 - Instalar o gulp e o gulp sass: 
+     npm install --save-dev gulp gulp-sass
+     npm install --save-dev sass
+5 - Crie um arquivo: .gitignore para indicar quais arquivos não serão versionados pelo git => node_modules
+6 - Vamos criar o nosso arquivo: gulpfile.js para criarmos uma tarefa teste.
+7 - Entre no arquivo package.json e coloque o comando abaixo de scrips: "build":"gulp",
+8 - No terminal: npm run build
+9 - Configurar o SASS:
+10 - Crie a estrutura: src/styles/main.scss
+11 - Faça um teste nesse arquivo main.scss
+12 - Abra o arquivo: gulpfile.js e faça a seguinte configuração:
+     const gulp = require('gulp');
+     const sass = require('gulp-sass')(require('sass'));
+13 - Agora configurar a compressão e compilação do arquivo SASS:
+14 - Ainda no arquivo: gulpfile.js digite:
+     function styles(){
+         return gulp.src('./src/styles/*.scss')
+          .pipe(sass({outputStyle: 'compressed'}))
+          .pipe(gulp.dest('./dist/css'));
+      }
+
+      exports.default = styles;
+15 - Execute no terminal: npm run build
+16 - Para não ter que em todo o momento escrever e rodar o comando: npm run build vamos configurar!!!
+17 - Escreva no arquivo: gulpfile.js:
+     exports.watch = function(){
+         gulp.watch('./src/styles/*.scss', gulp.parallel(styles))
+      }
+18 - Execute no terminal: npm run build watch
+19 - Vá no arquivo .gitignore e acrescente a pasta dist.
+20 - Crie um arquivo :index.html: Clone Disney Plus+
+21 - Finalize a execução do Gulp: CTRL + C
+22 - Faça o commit para o github daquilo que já foi realizado.
