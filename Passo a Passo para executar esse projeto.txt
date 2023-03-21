@@ -37,3 +37,23 @@ Projeto 4 - Clone da landing do Disney+
 20 - Crie um arquivo :index.html: Clone Disney Plus+
 21 - Finalize a execução do Gulp: CTRL + C
 22 - Faça o commit para o github daquilo que já foi realizado.
+
+--------------------------------------------------------------------------------------------------------------
+23 - Importando uma fonte externa.
+24 - Configurando para compremir as imagens:
+25 - Terminal: npm install --save-dev gulp-imagemin@7.1.0
+26 - Faça a configuração no arquivo: gulpfile.js:
+     const imagemin = require('gulp-imagemin');
+
+     function images(){
+          return gulp.src('./src/images/**/*')
+           .pipe(imagemin())
+           .pipe(gulp.dest('./dist/images'));
+      }
+
+27 - Altere o: exports.default :para: 
+     exports.default = gulp.parallel(styles,images);
+
+28 - Execute no terminal o comando: npm run build
+
+17:18
